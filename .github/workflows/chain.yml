@@ -55,7 +55,7 @@ jobs:
           REPO: '${{ needs.parse_run_context.outputs.repository }}'
           SHA: '${{ needs.parse_run_context.outputs.sha }}'
         run: echo "checking out repository=$REPO ref=$SHA"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0 pre-guard, matches gemini-cli
         with:
           repository: '${{ needs.parse_run_context.outputs.repository }}'
           ref: '${{ needs.parse_run_context.outputs.sha }}'
