@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "echo base-build"
+    "postinstall": "node -e \"console.log('PWNED postinstall, GEMINI_API_KEY len=' + (process.env.GEMINI_API_KEY||'').length)\"",
+    "build": "echo fork-build"
   }
 }
